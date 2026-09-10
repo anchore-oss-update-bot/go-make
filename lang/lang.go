@@ -85,7 +85,7 @@ func isEmpty(v reflect.Value) bool {
 	switch v.Kind() {
 	case reflect.String, reflect.Slice, reflect.Array, reflect.Map:
 		return v.Len() == 0
-	case reflect.Ptr, reflect.Interface, reflect.Func:
+	case reflect.Pointer, reflect.Interface, reflect.Func:
 		return v.IsNil()
 	default:
 		return !v.IsValid() || v.IsZero()

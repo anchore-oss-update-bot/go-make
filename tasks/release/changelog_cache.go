@@ -325,7 +325,7 @@ func (c *ociClient) do(req *http.Request, what string) ([]byte, error) {
 
 	// the request host and scheme are fixed constants (https + ghcr.io); only the URL path is
 	// derived from project/commit metadata, so gosec's SSRF taint warning is a false positive here.
-	rsp, err := c.http.Do(req) //nolint:gosec // G704: destination host/scheme are constant, not attacker-controllable
+	rsp, err := c.http.Do(req)
 	if err != nil {
 		return nil, err
 	}
